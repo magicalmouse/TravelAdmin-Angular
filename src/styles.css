@@ -1,0 +1,37 @@
+@import './business-portal-setup.css';
+@import './assets/files/fakescroll.css';
+
+@font-face {
+	font-family: 'Avenir';
+	src: url(/assets/fonts/AvenirNextLTPro-Regular.otf);
+}
+
+@font-face {
+	font-family: 'Material Icons';
+	src: url(/assets/fonts/MaterialIcons-Regular.ttf);
+}
+
+body {
+	background-color: #f1f3f4;
+	color: #363940;
+	font-family: 'Avenir', sans-serif;
+}
+
+.primary-contact-dialog .mat-dialog-container {
+	padding: 48px !important;
+}
+
+.user-menu-button .mat-button-focus-overlay {
+	display: none !important;
+}
+
+.standard-button {
+	color: #ffffff;
+	background-color: #3a86ff;
+	font-size: 16px;
+}
+
+.content-title {
+	font-size: 18px;
+	margin-bottom: 12px;
+}

@@ -1,0 +1,23 @@
+.mat-progress-spinner {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -50px;
+    margin-top: -50px;
+}
+
+.standard-button {
+  color: #f1f1f1;
+  background-color: #3A86FF;
+  font-size: 16px;
+}
+
+#forgot-password {
+  color: #0645AD; 
+  text-decoration: underline; 
+  cursor: pointer;
+}
+
+::ng-deep .mat-form-field-appearance-fill .mat-form-field-infix {
+  padding: 1.25em 0 .75em 0 !important;
+}

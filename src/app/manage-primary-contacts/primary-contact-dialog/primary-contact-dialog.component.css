@@ -1,0 +1,33 @@
+.mat-progress-spinner {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	margin-left: -50px;
+	margin-top: -50px;
+}
+
+.flex-container {
+	display: inline-flex;
+}
+
+.card-header {
+	color: #f1f1f1;
+	background-color: #de1a51;
+	padding: 8px;
+}
+
+.standard-button {
+	color: #f1f1f1;
+	background-color: #3a86ff;
+	font-size: 16px;
+}
+
+.addButton {
+	position: absolute;
+	bottom: 20px;
+	right: 20px;
+}
+
+mat-icon {
+	font-size: 12pt;
+}

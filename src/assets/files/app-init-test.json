@@ -1,0 +1,5 @@
+{
+    "application": 2,
+    "authPath": "https://9lwaroch9i.execute-api.us-east-2.amazonaws.com/test/",
+    "apiPath": "https://7188s13ttk.execute-api.us-east-2.amazonaws.com/test/"
+}

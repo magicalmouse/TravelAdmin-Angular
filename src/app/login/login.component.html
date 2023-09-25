@@ -1,0 +1,27 @@
+<mat-spinner style="z-index: 200;" *ngIf="showSpinner"></mat-spinner>
+<div class='mat-elevation-z4' style="width: 450px; height: 420px; position: absolute; background-color: #ffffff;  left: 50%; top: 50%; margin-left: -210px; margin-top: -210px;">
+  <div style="height: 120px; color: #f1f1f1; background-color: #3a86ff;">
+    <div style="font-size: 32px; padding: 72px 0px 0px 48px;">
+      Login
+    </div>
+  </div>
+  <div style="padding: 48px 48px 48px 48px;">
+      <mat-form-field style="width: 354px;">
+        <mat-label>Username</mat-label>
+        <input matInput [(ngModel)]="userName" (keyup)="userNameKeyUp($event)" required>
+      </mat-form-field>
+      <mat-form-field style="width: 354px; margin-top: 20px;" *ngIf = "!showForgotPassword">
+        <mat-label>Password</mat-label>
+        <input matInput [(ngModel)]="password" [type]="'password'" (keyup)="passwordKeyUp($event)" #passwordField required>
+      </mat-form-field>
+    <span id = "forgot-password" (click) = "showForgotPassword = true" *ngIf = "!showForgotPassword">Forgot Password?</span>
+    <div class="centered-element">
+      <button class="standard-button" style="width: 80px; margin-left: 264px; margin-top: 20px;" mat-raised-button (click)="login()" *ngIf = "!showForgotPassword">
+        Login
+      </button>
+      <button class="standard-button" style="width: 80px; margin-left: 264px; margin-top: 20px;" mat-raised-button (click)="passwordReset()" *ngIf = "showForgotPassword">
+        Submit
+      </button>
+    </div>      
+  </div>
+</div>

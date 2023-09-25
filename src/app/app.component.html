@@ -1,0 +1,21 @@
+<mat-spinner style="z-index: 200;" *ngIf="gettingSession || showSpinner"></mat-spinner>
+<mat-toolbar style = "background-color: #de1a51; position: fixed; top: 0; left: 0; color: white; z-index: 1000;">
+    <span *ngIf = "!isLoggedIn">Admin Portal</span>
+    <span *ngIf = "isLoggedIn" (click) = "onNavigate(1)" style = "cursor: pointer;">Admin Portal&nbsp;&nbsp;&#x25CF;&nbsp;&nbsp;Manage Primary Contacts</span>
+    <span style = "flex: 1 1 auto;"></span>
+    <div *ngIf="isLoggedIn"> 
+        <button mat-button [matMenuTriggerFor] = "userMenu" class = "user-menu-button" [disableRipple] = "true" style = "padding-top:15px; padding-bottom: 15px; font-size: 12pt;">{{ appUser.firstName }} {{ appUser.lastName }}</button>
+        <mat-menu #userMenu="matMenu" [overlapTrigger]="false">
+            <button mat-menu-item (click) = "onNavigate(2)">Profile</button>
+            <a style = "text-decoration: none; color: inherit;" href = "../assets/files/AdminDocumentation.pdf" target = "_blank"><button mat-menu-item>Help</button></a>
+            <button mat-menu-item (click) = "onLogout()">Logout</button>
+        </mat-menu>
+    </div>
+</mat-toolbar>
+
+<div style="font-family: 'Avenir', sans-serif;">  
+    <app-login *ngIf="!isLoggedIn  && !resetPassword && !gettingSession" (onLogin)="onLogin($event)"></app-login> 
+    <router-outlet *ngIf = "isLoggedIn || resetPassword">
+    </router-outlet>
+</div>
+

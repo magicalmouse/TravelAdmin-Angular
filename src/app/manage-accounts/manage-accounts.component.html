@@ -1,0 +1,48 @@
+<div style = "width: 60%; height: 700px; margin: 0 auto; padding: 24px; margin-top: 20px; background-color: #ffffff; position: relative" class="mat-elevation-z8" [hidden] = "!accountsFinished">
+    <mat-toolbar style = "position: absolute; top: 0; left: 0; background-color: #3a86ff; color: white;">
+        Accounts
+    </mat-toolbar>
+    <div style = "margin-top: 70px; margin-left: 20px;">
+        <mat-form-field style = "width: 200px;">
+            <input matInput (keyup)="applyFilterAccounts($event.target.value)" placeholder="Filter Accounts">
+          </mat-form-field>
+    </div>
+
+    <div style = "margin-top: 12px; height: 600px;">
+        <table mat-table [dataSource] = "accountsDataSource" style = "width: 100%;" >
+            <ng-container matColumnDef="custId">
+                <th mat-header-cell *matHeaderCellDef> Account Nbr
+                    <button mat-icon-button *ngIf = "sorting.column === 'custId' && sorting.direction === 'asc'"(click) = "sortData('custId')"><mat-icon>arrow_upward</mat-icon></button>
+                    <button mat-icon-button *ngIf = "sorting.column === 'custId' && sorting.direction === 'desc'"(click) = "sortData('custId')"><mat-icon>arrow_downward</mat-icon></button>
+                    <button mat-icon-button *ngIf = "sorting.column !== 'custId'" (click) = "sortData('custId')"> - </button></th>
+                <td mat-cell *matCellDef="let element"> {{element.custId}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="fleetId" > 
+                <th mat-header-cell *matHeaderCellDef style = "width: 100px;"> Fleet
+                    <button mat-icon-button *ngIf = "sorting.column === 'fleetId' && sorting.direction === 'asc'"(click) = "sortData('fleetId')"><mat-icon>arrow_upward</mat-icon></button>
+                    <button mat-icon-button *ngIf = "sorting.column === 'fleetId' && sorting.direction === 'desc'"(click) = "sortData('fleetId')"><mat-icon>arrow_downward</mat-icon></button>
+                    <button mat-icon-button *ngIf = "sorting.column !== 'fleetId'" (click) = "sortData('fleetId')"> - </button></th>
+                <td mat-cell *matCellDef="let element" style = "width: 100px;"> {{element.fleetId}} </td>
+            </ng-container>
+            
+            <ng-container matColumnDef="name">
+                <th mat-header-cell *matHeaderCellDef>Name
+                    <button mat-icon-button *ngIf = "sorting.column === 'name' && sorting.direction === 'asc'"(click) = "sortData('name')"><mat-icon>arrow_upward</mat-icon></button>
+                    <button mat-icon-button *ngIf = "sorting.column === 'name' && sorting.direction === 'desc'"(click) = "sortData('name')"><mat-icon>arrow_downward</mat-icon></button>
+                    <button mat-icon-button *ngIf = "sorting.column !== 'name'" (click) = "sortData('name')"> - </button></th>
+                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="select">
+                <th class="col-3" mat-header-cell *matHeaderCellDef>  </th>
+                <td mat-cell *matCellDef="let element"> <button class="standard-button" mat-raised-button (click) = "openAccountProfile(element)">Edit</button> </td>
+              </ng-container>
+            
+            
+            <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSize]="9" showFirstLastButtons #accountsPaginator></mat-paginator>
+    </div>
+</div>
